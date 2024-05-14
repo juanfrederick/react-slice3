@@ -1,0 +1,386 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightblue;
+  height: 200vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Landing Page */
+
+.landing-container {
+  height: 100vh;
+  background-color: whitesmoke;
+  padding: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-container h1 {
+  font-size: 6rem;
+  line-height: 6rem;
+  color: rgba(0, 0, 0, 0.432);
+  font-weight: lighter;
+}
+
+.landing-container h1 span {
+  transition: 300ms;
+}
+
+.landing-container h1 span.active {
+  color: rgb(15, 15, 15);
+}
+
+/* Nav */
+.navbar-container {
+  display: flex;
+  padding: 2rem 4rem;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 999;
+}
+
+.nav-name {
+  cursor: pointer;
+}
+
+.nav-relative {
+  position: relative;
+  border-radius: 90px;
+  overflow: hidden;
+}
+
+.nav-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  filter: blur(10px);
+  border-radius: 90px;
+  z-index: -1;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 90px;
+  background-color: rgba(78, 78, 78, 0.144);
+  /* border: solid 1px black; */
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: rgb(54, 54, 54);
+  transition: 500ms;
+}
+
+.nav-list a:hover {
+  color: black;
+}
+
+.nav-button {
+  padding: 0.6rem 0.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  background-color: white;
+  transition: 500ms;
+}
+
+.nav-button:hover {
+  background-color: rgb(180, 180, 180);
+}
+
+/* Carousel */
+.carousel-page-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  gap: 1rem;
+}
+
+.image-container {
+  width: 50%;
+  height: 500px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+.image-animation-rl {
+  animation: ease-out 500ms image-animate-rl;
+}
+
+.image-animation-lr {
+  animation: ease-out 500ms image-animate-lr;
+}
+
+/* Button */
+
+.carousel-button-container {
+  width: 60%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+.prev-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.next-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+@keyframes image-animate-rl {
+  from {
+    transform: translateX(10px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes image-animate-lr {
+  from {
+    transform: translateX(-10px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.dot-container {
+  width: 100px;
+  height: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 180px;
+  background-color: rgb(182, 182, 182);
+  cursor: pointer;
+}
+
+.dot-active {
+  background-color: grey;
+}
+
+/* Slider */
+.image-slider-page {
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.slider-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slider-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadein 300ms;
+}
+
+.slider-btn-container {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 1275px) {
+  /* Landing Page */
+  .landing-container h1 {
+    font-size: 5.5rem;
+    line-height: 5.5rem;
+  }
+
+  .image-container {
+    width: 60%;
+  }
+
+  .carousel-button-container {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  /* Landing Page */
+  .landing-container h1 {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  /* Landing Page */
+  .landing-container h1 {
+    font-size: 4.5rem;
+    line-height: 4.5rem;
+  }
+
+  .image-container {
+    width: 65%;
+  }
+
+  .carousel-button-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  /* Landing Page */
+  .landing-container h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+
+  .navbar-container {
+    padding: 2rem 2.5rem;
+  }
+
+  .image-container {
+    width: 70%;
+    height: 400px;
+  }
+
+  .carousel-button-container {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .nav-relative {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /* Landing Page */
+  .landing-container h1 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+
+  .image-container {
+    width: 80%;
+  }
+
+  .carousel-button-container {
+    width: 98%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* Landing Page */
+  .landing-container h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+
+  .image-container {
+    width: 80%;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* Landing Page */
+  .landing-container h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* Landing Page */
+  .landing-container h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .landing-container h1 {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+
+  .image-container {
+    width: 40%;
+    height: 270px;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .landing-container h1 {
+    font-size: 2.8rem;
+    line-height: 3.5rem;
+  }
+
+  .image-container {
+    width: 40%;
+    height: 250px;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .landing-container h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  .image-container {
+    width: 40%;
+    height: 200px;
+  }
+}
